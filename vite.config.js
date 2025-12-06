@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -7,9 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   preview: {
-    allowedHosts: ['front-restaurante-alforno-production.up.railway.app'],
+    allowedHosts: ["front-restaurante-alforno-production.up.railway.app"],
     port: process.env.PORT || 4173,
-    host: true
-  }
-
+    host: true,
+  },
 });
