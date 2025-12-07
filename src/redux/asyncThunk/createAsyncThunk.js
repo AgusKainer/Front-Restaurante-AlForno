@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import fetchWithToken from "./fetchWithToken";
 
-const url = "https://back-restaurante-alforno-production.up.railway.app/";
+const url = "https://back-restaurante-alforno-production.up.railway.app";
 
 // GET DEL BACK
 export const fetchMesasDisponibles = createAsyncThunk(
