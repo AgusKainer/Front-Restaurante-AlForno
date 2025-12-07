@@ -1,4 +1,5 @@
 import useFormHook from "../customHooks/customForm";
+import registerUser from "../customHooks/register";
 
 const RegisterUser = () => {
   const formInitial = {
@@ -12,6 +13,8 @@ const RegisterUser = () => {
     try {
       const success = await registerUser(usuario, password);
       if (success) {
+        console.log(usuario, password);
+
         console.log("✅ Registrado correctamente");
       }
     } catch (error) {
