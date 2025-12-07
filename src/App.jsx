@@ -11,6 +11,7 @@ import MesaForm from "./components/MesaForm";
 
 import FormReserva from "./components/ReservaForm";
 import EditarReserva from "./components/EditReservaForm";
+import RegisterUser from "./components/RegisterUser";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/postreserva" element={<FormReserva />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterUser />} />
         <Route path="/dashboard" element={<ProtectedRoute />}>
           <Route index element={<Dashboard />} />
           <Route path="mesa" element={<MesaList />} />
