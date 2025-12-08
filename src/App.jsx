@@ -21,12 +21,8 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(
-      "que llega o que envia el front: ",
-      localStorage.getItem("token")
-    );
-
     if (token) {
+      // Validar contra backend
       fetch(
         "https://back-restaurante-alforno-production.up.railway.app/verify",
         {
@@ -35,7 +31,7 @@ function App() {
       )
         .then((res) => {
           if (res.ok) {
-            dispatch(login());
+            dispatch(login()); // 🔥 Redux vuelve a marcar sesión activa
           } else {
             localStorage.removeItem("token");
             dispatch(logout());
