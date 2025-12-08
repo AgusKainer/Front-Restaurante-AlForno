@@ -32,6 +32,7 @@ function App() {
         .then((res) => {
           if (res.ok) {
             dispatch(login()); // 🔥 Redux vuelve a marcar sesión activa
+            console.log("🟢 Sesion restaurada");
           } else {
             localStorage.removeItem("token");
             dispatch(logout());
