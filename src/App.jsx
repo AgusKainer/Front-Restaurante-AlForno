@@ -21,6 +21,11 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    console.log(
+      "que llega o que envia el front: ",
+      localStorage.getItem("token")
+    );
+
     if (token) {
       fetch(
         "https://back-restaurante-alforno-production.up.railway.app/verify",
