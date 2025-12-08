@@ -22,7 +22,6 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      // Validar contra backend
       fetch(
         "https://back-restaurante-alforno-production.up.railway.app/verify",
         {
@@ -31,8 +30,8 @@ function App() {
       )
         .then((res) => {
           if (res.ok) {
-            dispatch(login()); // 🔥 Redux vuelve a marcar sesión activa
-            console.log("🟢 Sesion restaurada");
+            dispatch(login());
+            console.log("🟢 Sesión restaurada");
           } else {
             localStorage.removeItem("token");
             dispatch(logout());
@@ -41,7 +40,12 @@ function App() {
         .catch(() => {
           localStorage.removeItem("token");
           dispatch(logout());
+        })
+        .finally(() => {
+          dispatch(finishLoading()); // 👈 importante
         });
+    } else {
+      dispatch(finishLoading());
     }
   }, [dispatch]);
 

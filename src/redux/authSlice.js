@@ -1,8 +1,9 @@
+// redux/authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoggedIn: false,
-  isLoading: true, // 👈 arranca en "true" porque al inicio todavía no sabemos si hay sesión
+  isLoading: true, // 👈 arranca en true
 };
 
 const authSlice = createSlice({
@@ -11,14 +12,14 @@ const authSlice = createSlice({
   reducers: {
     login(state) {
       state.isLoggedIn = true;
-      state.isLoading = false; // 👈 ya terminó la carga, y está logueado
+      state.isLoading = false;
     },
     logout(state) {
       state.isLoggedIn = false;
-      state.isLoading = false; // 👈 ya terminó la carga, y no está logueado
+      state.isLoading = false;
     },
     finishLoading(state) {
-      state.isLoading = false; // 👈 útil para marcar fin de validación aunque no haya login
+      state.isLoading = false;
     },
   },
 });
