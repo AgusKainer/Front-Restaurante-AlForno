@@ -14,7 +14,7 @@ import EditarReserva from "./components/EditReservaForm";
 import RegisterUser from "./components/RegisterUser";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { login, logout } from "./redux/authSlice";
+import { finishLoading, login, logout } from "./redux/authSlice";
 
 function App() {
   const dispatch = useDispatch();
