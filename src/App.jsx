@@ -12,8 +12,37 @@ import MesaForm from "./components/MesaForm";
 import FormReserva from "./components/ReservaForm";
 import EditarReserva from "./components/EditReservaForm";
 import RegisterUser from "./components/RegisterUser";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { login, logout } from "./redux/authSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetch(
+        "https://back-restaurante-alforno-production.up.railway.app/verify",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+            dispatch(login());
+          } else {
+            localStorage.removeItem("token");
+            dispatch(logout());
+          }
+        })
+        .catch(() => {
+          localStorage.removeItem("token");
+          dispatch(logout());
+        });
+    }
+  }, [dispatch]);
+
   return (
     <>
       <Routes>
