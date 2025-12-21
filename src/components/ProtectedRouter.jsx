@@ -5,7 +5,7 @@ const ProtectedRoute = () => {
   const { isLoggedIn, isLoading } = useSelector((state) => state.auth);
 
   if (isLoading) {
-    return <div>Cargando sesión...</div>; // spinner o mensaje
+    return <div>Cargando sesión...</div>;
   }
 
   return isLoggedIn ? <Outlet /> : <Navigate to="/" />;

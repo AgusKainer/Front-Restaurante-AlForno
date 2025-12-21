@@ -25,7 +25,7 @@ export default function EditarReserva({ reserva }) {
       alert("Reserva actualizada correctamente");
       navigate("/dashboard");
     } catch (err) {
-      console.log("error al editar o enviar: ", err);
+      // console.log("error al editar o enviar: ", err);
 
       alert("Error al actualizar la reserva");
     }

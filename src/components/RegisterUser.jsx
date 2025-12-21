@@ -13,8 +13,6 @@ const RegisterUser = () => {
     try {
       const success = await registerUser(usuario, password);
       if (success) {
-        console.log(usuario, password);
-
         console.log("✅ Registrado correctamente");
       }
     } catch (error) {

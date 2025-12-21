@@ -18,7 +18,7 @@ const registerUser = async (usuario, password) => {
     }
 
     if (res.ok) {
-      return data; // devuelve info útil del backend
+      return data;
     } else {
       throw new Error(data.message || "Error en el registro");
     }

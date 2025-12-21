@@ -67,7 +67,6 @@ export const fetchReservasFiltradas = createAsyncThunk(
           "Content-Type": "application/json",
         },
       });
-      console.log("RESPUESTA DE REDUX AL FILTRO: ", res);
 
       if (!res.ok) throw new Error("Error al obtener reservas");
       const data = await res.json();
@@ -107,8 +106,6 @@ export const fetchReservaPost = createAsyncThunk(
 );
 
 export const fetchEmail = createAsyncThunk("email/send", async ({ id }) => {
-  console.log("log de redux: ", id);
-
   const res = await fetch(`${url}/email/${id}`, {
     method: "POST",
     headers: {
@@ -134,15 +131,12 @@ export const deleteReserva = createAsyncThunk("eliminar/delete", async (id) => {
 export const putReserva = createAsyncThunk(
   "editar/put",
   async ({ id, data }) => {
-    console.log("PUT Reserva → id:", id, "data:", data);
-
     const result = await fetchWithToken(`${url}/actualizar/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
-    console.log("Response JSON:", result);
     return result; // 👈 ya es el objeto JSON que devolvió tu backend
   }
 );
